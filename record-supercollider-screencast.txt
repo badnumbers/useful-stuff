@@ -4,17 +4,23 @@ Install PulseAudio Sink and Sources - package is called pulseaudio-module-jack i
 
 Once, that's all done, here's the setup you need to start making your screencast:
 
+Plug the Scarlett 2i2 into the laptop
 Plug the headphones into the output jack of the Scarlett 2i2
 
-In qjackctl, in Connect:
-Map the Supercollider outs to Jack Source ins
-And in Setup
+In qjackctl:
+In Setup:
 Jack: Go to Interface and choose 'hw:USB the Scarlett 2i2 USB (hw:2)' from the list of options
 Now start Jack.
 
+Start supercollider and boot the server
+
+Back in qjackctl:
+in Connect:
+Map the Supercollider outs to Jack Source ins
+
 In the Sound program in Linux Mint:
-Input: Jack source (PulseAudio JACK Source)
 Output: Analogue Output Scarlett 2i2 USB
+Input: Jack source (PulseAudio JACK Source)
 
 In Kazam:
 Preferences / General / Microphone: choose 'Jack source (PulseAudio JACK Source)'
