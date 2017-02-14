@@ -1,0 +1,23 @@
+Install supercollider itself :)
+Install kazam: package is called kazam in Ubuntu
+Install PulseAudio Sink and Sources - package is called pulseaudio-module-jack in Ubuntu
+
+Once, that's all done, here's the setup you need to start making your screencast:
+
+Plug the headphones into the output jack of the Scarlett 2i2
+
+In qjackctl, in Connect:
+Map the Supercollider outs to Jack Source ins
+And in Setup
+Jack: Go to Interface and choose 'hw:USB the Scarlett 2i2 USB (hw:2)' from the list of options
+Now start Jack.
+
+In the Sound program in Linux Mint:
+Input: Jack source (PulseAudio JACK Source)
+Output: Analogue Output Scarlett 2i2 USB
+
+In Kazam:
+Preferences / General / Microphone: choose 'Jack source (PulseAudio JACK Source)'
+
+
+http://new-supercollider-mailing-lists-forums-use-these.2681727.n2.nabble.com/Creating-a-supercollider-screencast-in-Linux-td7625962.html
