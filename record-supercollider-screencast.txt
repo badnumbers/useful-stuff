@@ -17,6 +17,7 @@ Start supercollider and boot the server
 Back in qjackctl:
 in Connect:
 Map the Supercollider outs to Jack Source ins
+DO NOT disconnect the Supercollider outs from the system outs
 
 In the Sound program in Linux Mint:
 Output: Analogue Output Scarlett 2i2 USB
