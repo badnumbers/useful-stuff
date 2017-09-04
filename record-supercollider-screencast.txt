@@ -9,7 +9,7 @@ Plug the headphones into the output jack of the Scarlett 2i2
 
 In qjackctl:
 In Setup:
-Jack: Go to Interface and choose 'hw:USB the Scarlett 2i2 USB (hw:2)' from the list of options
+Jack: Go to Interface and choose 'hw:USB the Scarlett 2i2 USB (hw:2)' from the list of options for both input and output
 Now start Jack.
 
 Start supercollider and boot the server
@@ -28,3 +28,10 @@ Preferences / General / Microphone: choose 'Jack source (PulseAudio JACK Source)
 
 
 http://new-supercollider-mailing-lists-forums-use-these.2681727.n2.nabble.com/Creating-a-supercollider-screencast-in-Linux-td7625962.html
+
+For Kubuntu 17.04
+
+Same as above, but instead of Sound program, open Audio Volume
+Set as default for output: Scarlett 2i2 USB Analogue Stereo
+Set as default for input: Jack source (PulseAudio JACK Source)
+MUTE ALL THE OTHER ONES
