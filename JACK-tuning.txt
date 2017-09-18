@@ -1,0 +1,5 @@
+These tips from Patrick Dupuis:
+1. Ensure realtime scheduling is enabled. http://jackaudio.org/faq/linux_rt_config.html
+2. 'ok, you should increase the priority level to 80-ish' - in qjackctl advanced settings
+3. tweaking the frames/period in the settings will also help (don't go to low)
+4. also set your CPU to use the performance governor - you might have to install a package from the ubuntu repos in order to do that
