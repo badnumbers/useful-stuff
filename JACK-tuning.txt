@@ -3,3 +3,14 @@ These tips from Patrick Dupuis:
 2. 'ok, you should increase the priority level to 80-ish' - in qjackctl advanced settings
 3. tweaking the frames/period in the settings will also help (don't go to low)
 4. also set your CPU to use the performance governor - you might have to install a package from the ubuntu repos in order to do that
+
+CPU governor
+1. sudo apt-get install cpufrequtils
+2. cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+- Tells you which governor is currently being used
+3. cpufreq-info | grep 'current CPU fr'
+- Gives you the current CPU frequency
+4. cpufreq-set -g performance
+- Sets the governor to performance
+5. cpufreq-set -g powersave
+- Sets it back to powersave
