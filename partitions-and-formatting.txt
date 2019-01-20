@@ -1,0 +1,12 @@
+ https://www.ostechnix.com/how-to-create-bootable-usb-drive-using-dd-command/
+ Covers getting device names and listing the partitions in each drive, as well as formatting as FAT32 and using dd to create a bootable USB drive.
+ 
+ sudo su -> get permanent superuser session
+ fdisk -l -> get list of devices and their partitions
+ umount /dev/sdb* -> unmount any device starting with /dev/sdb (gets the USB drive on this system)
+ fdisk /dev/sdb -> start start 'session' to monkey around with partitions
+ choose d to delete a partition
+ a to change the bootability of a partition
+ n (I think) to create a new one
+ m to get the list of options
+ Use w to write your choice - not committed until then
