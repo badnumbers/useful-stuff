@@ -1,4 +1,4 @@
-# Reading and learning
+# Visual Studio Code and python
 
 ## Installing Visual Studio Code
 * Installed Visual Studio Code using the .deb link on this page: https://code.visualstudio.com/docs/setup/linux
