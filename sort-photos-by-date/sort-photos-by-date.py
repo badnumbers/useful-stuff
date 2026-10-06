@@ -18,6 +18,27 @@ from pathlib import Path
 DATE_PREFIX = re.compile(r"^(\d{8})_")
 
 
+def normalize_dir_path(value: object, label: str) -> Path:
+    """Accept folder paths with or without a trailing slash."""
+    text = str(value).strip()
+    # Keep a lone root path ("/" or "C:\\") intact; otherwise drop trailing separators.
+    if len(text) > 1:
+        text = text.rstrip("/\\")
+    if not text:
+        raise SystemExit(f"{label} is empty")
+    return Path(text).expanduser()
+
+
+def require_directory(value: object, label: str) -> Path:
+    path = normalize_dir_path(value, label)
+    if not path.is_dir():
+        raise SystemExit(
+            f"{label} does not exist or is not a directory "
+            f"(is the drive mounted?): {path}"
+        )
+    return path
+
+
 def load_config(path: Path) -> dict:
     with path.open(encoding="utf-8") as f:
         config = json.load(f)
@@ -26,21 +47,14 @@ def load_config(path: Path) -> dict:
         if key not in config:
             raise SystemExit(f"Config is missing required key: {key}")
 
-    unsorted = Path(config["UnsortedFolderPath"])
-    destination = Path(config["DestinationFolderPath"])
-
-    if not unsorted.is_dir():
-        raise SystemExit(
-            f"UnsortedFolderPath does not exist or is not a directory "
-            f"(is the drive mounted?): {unsorted}"
-        )
-    if not destination.is_dir():
-        raise SystemExit(
-            f"DestinationFolderPath does not exist or is not a directory "
-            f"(is the drive mounted?): {destination}"
-        )
-
-    return {"unsorted": unsorted, "destination": destination}
+    return {
+        "unsorted": require_directory(
+            config["UnsortedFolderPath"], "UnsortedFolderPath"
+        ),
+        "destination": require_directory(
+            config["DestinationFolderPath"], "DestinationFolderPath"
+        ),
+    }
 
 
 def parse_date_prefix(name: str) -> tuple[str, str] | None:
